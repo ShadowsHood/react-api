@@ -1,11 +1,10 @@
 import LoginForm from "../../Component/LoginForm/LoginForm";
 import {useState} from "react";
-import useToken from '../../Services/useToken';
+// import useToken from '../../Services/useToken';
 import { Navigate, useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({token, setToken}) => {
 
-    const { token, setToken } = useToken();
     const navigate = useNavigate();
     const [ formSubmitting, setFormSubmitting ] = useState(false);
 
@@ -26,6 +25,7 @@ const LoginPage = () => {
                 const loginData = await login.json();
                 // console.log('le login recupére apres requete : ', loginData.token);
                 setToken(loginData.token);
+                localStorage.setItem('token', loginData.token);
                 navigate("/");
             }
 

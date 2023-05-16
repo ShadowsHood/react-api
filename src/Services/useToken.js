@@ -13,14 +13,14 @@ export default function useToken() {
     };
 
     const deleteToken = () => {
-        const tokenString = localStorage.removeItem('token');;
+        const tokenString = localStorage.removeItem('token');
     };
 
     const [token, setToken] = useState(getToken());
 
     return {
         setToken: saveToken,
-        xToken: deleteToken,
+        deleteToken,
         token
     }
 }
