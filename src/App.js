@@ -38,7 +38,7 @@ function App() {
         <RequireAuth token={token}/>
         <Routes>
             <Route path="/" element={<Layout token={token} setToken={setToken} />}>
-                <Route index element={<HomePage />} />
+                <Route index element={<HomePage token={token} />} />
                 <Route path="login" element={<LoginPage token={token} setToken={setToken} />} />
                 <Route path="logout" element={<LogoutPage token={token} />} />
             </Route>

@@ -8,13 +8,9 @@ const LogoutPage = ({token}) => {
     const navigate = useNavigate();
     const [ formSubmitting, setFormSubmitting ] = useState(false);
 
-    if (!token) {
-        return (<Navigate to="/" />)
-    } else {
-        localStorage.removeItem('token');
 
-        return (<Navigate to="/" />)
-    }
+    localStorage.removeItem('token');
+    return (<Navigate to="/" />)
 }
 
 export default LogoutPage;
